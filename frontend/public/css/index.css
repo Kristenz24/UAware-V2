@@ -1,0 +1,464 @@
+html { 
+    scroll-behavior         : smooth;
+}
+
+body, html {
+    height                  : auto;
+    padding-bottom          : 100px;
+}
+
+body {
+    background-color        : var(--clr-bg);
+    font-family             : sans-serif;
+    display                 : flex;  
+    height                  : auto;
+}
+
+/* Main Container */
+main.main-container {
+    display                 : flex;
+    position                : relative;
+    width                   : 100%;
+    max-width               : 1600px;
+}
+
+/* Aside Navigation */
+.aside-navigation-blocker {
+    background-color        : rgba(0,0,0,0.1);
+    width                   : 100%;
+    height                  : 100%;
+    position                : fixed;
+    z-index                 : 5000;
+    display                 : none;
+    backdrop-filter         : blur(3px);
+}
+
+.aside-navigation {
+    position                : fixed;
+    width                   : 300px;
+    height                  : 100dvh;
+    padding                 : 1rem;
+    display                 : flex;
+    flex-direction          : column;
+    gap                     : 1rem;
+    z-index                 : 6000;
+    background-color        : var(--clr-primary-surface);
+    border-right            : 3px solid var(--clr-secondary-surface);
+
+}
+
+/* REMINDER: this is a toggleabble class for .aside-navigation-blocker */
+div.show-menu-overlay {
+    display                 : block;
+}
+
+/* REMINDER: this is a toggleabble class for .aside-navigation */
+nav.show-menu {
+    transform               : translateX(0);
+    z-index                 : 6000;
+}
+
+nav.aside-navigation > div.logo {
+    display                 : flex;
+    height                  : 5rem;
+    align-items             : center;
+    gap                     : 1rem;
+    color                   : var(--clr-text);
+    padding-inline          : 1rem ;
+}
+
+nav.aside-navigation > div.logo > h1 {
+    background              : linear-gradient(to right, var(--clr-gradient-blue), var(--clr-gradient-white));
+    background-clip         : text; 
+    -webkit-background-clip : text; 
+    -webkit-text-fill-color : transparent; 
+}
+
+nav.aside-navigation > div.open-post-modal-btn > button {
+    width                   : 100%;
+    height                  : 50px;
+    border-radius           : .5rem;
+    color                   : var(--clr-bg);
+    background-color        : var(--clr-gradient-blue);
+    border                  : none;
+    background              : linear-gradient(to right, var(--clr-gradient-blue), var(--clr-gradient-white));
+}
+
+nav.aside-navigation > ul.nav-links {
+    display                 : flex;
+    flex-direction          : column;
+    gap                     : .5rem;
+}
+
+nav.aside-navigation > ul.nav-links > li > a {
+    display                 : flex;
+    height                  : 50px;
+    align-items             : center;
+    gap                     : 1rem ;
+    padding-inline          : 1rem;
+    color                   : var(--clr-inactive-link);
+}
+
+nav.aside-navigation > ul.nav-links > li > a.active-link {
+    background-color        : var(--clr-primary-surface);
+    color                   : var(--clr-text);
+}
+
+/* Main Screen */
+main.main-screen {
+    width                   : calc(100% - 300px);
+    margin-left             : 300px;
+    padding                 : 1rem 2rem;
+    display                 : flex;
+    flex-direction          : column;
+    gap                     : 1rem;
+    z-index                 : 4000;
+}
+
+main.main-screen > header {
+    display                 : flex;
+    height                  : 5rem;
+    align-items             : center;
+    gap                     : 1rem;
+    color                   : var(--clr-text);
+}
+
+main.main-screen > div.chart {
+    width                   : 100%;
+    max-width               : 1500px;
+    border-radius           : 0.5rem;
+    display                 : flex;
+    justify-content         : center;
+    align-items             : center;
+    background-color        : var(--clr-primary-surface);
+    border                  : 3px solid var(--clr-secondary-surface);
+    transition              : background-color 0.5s ease;
+}
+
+main.main-screen > div.chart:hover {
+    background-color        : var(--clr-secondary-surface);
+}
+
+main.main-screen > div.chart > canvas#myChart {
+    display                 : block;
+    height                  : 350px !important; 
+    max-width               : 1000px !important;
+}
+
+main.main-screen > section.item-status-summary {
+    display                 : flex;
+    flex-direction          : column;
+    gap                     : 1rem;
+}
+
+main.main-screen > section.item-status-summary > .item-summary-cards {
+    display                 : flex;
+    gap                     : 1rem;
+    width                   : 100%;
+    max-width               : 1500px;
+}
+
+main.main-screen > section.item-status-summary > .item-summary-cards > article {
+    width                   : 7500px;
+    height                  : 300px;
+    border-radius           : .5rem;
+    max-width               : 100%;
+    background-color        : var(--clr-primary-surface);
+    padding                 : 2rem;
+    display                 : flex;
+    gap                     : 1rem;
+    flex-direction          : column;
+    border                  : 3px solid var(--clr-secondary-surface);
+    transition              : background-color .5s ease;
+    position                : relative;
+    overflow: hidden;
+}
+
+main.main-screen > section.item-status-summary i.fa-briefcase{
+    color                   : var(--clr-secondary-surface);
+    font-size               : 15rem;
+    position                : absolute;
+    bottom                  : -50px;
+    z-index                 : 100;
+    left                    : -50px;
+}
+
+
+main.main-screen > section.item-status-summary > .item-summary-cards > article:hover {
+    background-color        : var(--clr-secondary-surface);
+} 
+main.main-screen > section.item-status-summary > .item-summary-cards > article.item-missing-count > i {
+    width                   : 90px;
+    height                  : 90px;
+    line-height             : 90px;
+    text-align              : center;
+    border-radius           : 0.5rem;
+    background-color        : var(--clr-secondary-surface);
+    font-size               : 2rem;
+    align-self              : flex-end;
+    color                   : var(--clr-gradient-red);
+}
+
+
+main.main-screen > section.item-status-summary > .item-summary-cards > article.item-found-count > i {
+    color                   : var(--clr-gradient-blue);
+    width                   : 90px;
+    height                  : 90px;
+    line-height             : 90px;
+    text-align              : center;
+    border-radius           : 0.5rem;
+    background-color        : var(--clr-secondary-surface);
+    font-size               : 2rem;
+    align-self              : flex-end;
+}
+
+main.main-screen > section.item-status-summary > .item-summary-cards > article > div > p:nth-child(1) {
+    font-size               : 5rem;
+}
+
+main.main-screen > section.item-status-summary > .item-summary-cards > article > div > p:nth-child(2) {
+    color                   : var(--clr-inactive-link);
+}
+
+main.main-screen > section.item-status-summary > .item-summary-cards > article  p {
+    color                   : var(--clr-text);
+    z-index                 : 200;
+    position                : relative;
+}
+
+/* items container */
+main.main-screen > section.items-container {
+    display                 : flex;
+    flex-direction          : column;
+    gap                     : 1rem;
+    min-height              : 300px;
+}
+
+section.items-container > header {
+    display                 : flex;
+    align-items             : center;
+    justify-content         : space-between;
+    width                   : 100%;
+    max-width               : 1500px;
+    color                   : var(--clr-text);
+}
+
+section.items-container > header > div.search-field > input {
+    background-color        : var(--clr-bg);
+    border                  : 2px solid var(--clr-secondary-surface);
+    padding                 : 1rem 5rem 1rem 2rem;
+    border-radius           : 0.5rem;
+    color                   : var(--clr-text);
+}
+
+section.items-container > table {
+    width                   : 100%;
+    max-width               : 1500px;
+    border-collapse         : collapse;
+    table-layout            : auto;
+    color                   : var(--clr-text);
+    background-color        : var(--clr-primary-surface);
+    border-radius           : 0.5rem;
+}
+
+section.items-container tr {
+    border-bottom           : 1px solid var(--clr-secondary-surface);
+}
+
+section.items-container thead > tr {
+    color                   : var(--clr-text);
+}
+
+section.items-container tbody > tr {
+    transition              : 0.3s;
+    position                : relative;
+    z-index                 : 500;
+}
+
+section.items-container tbody > tr:hover {
+    cursor                  : pointer;
+    border-bottom           : none;
+    z-index                 : 2000;
+    position                : relative;
+    transform               : scale(1.01);
+    border-radius           : .5rem;
+    background-color: var(--clr-secondary-surface);
+}
+
+section.items-container tbody > tr:not(:hover) {
+    opacity                 : 0.2;
+    z-index                 : 1000;
+}
+
+section.items-container tbody > tr > td  {
+    position                : relative;
+}
+
+section.items-container th,
+section.items-container td {
+    padding                 : 1rem;
+    text-align              : start;
+} 
+
+section.items-container tr > * {
+    height                  : 80px;
+}
+
+section.items-container td.truncate-text {
+    max-width               : 200px;
+    white-space             : nowrap;
+    overflow                : hidden;
+    text-overflow           : ellipsis;
+}
+
+section.items-container td.status {
+    display                 : flex;
+    align-items             : center;
+    justify-content         : flex-start;
+    gap                     : 0.5rem;   
+}
+
+section.items-container td:last-child {
+    position                : relative;
+}
+
+section.items-container div.status-found-clr {
+    --status-circle-size    : 10px;
+    width                   : var(--status-circle-size);
+    height                  : var(--status-circle-size);
+    background-color        : var(--clr-found-highlight);
+    border-radius           : var(--status-circle-size);
+}
+
+section.items-container div.status-missing-clr {
+    --status-circle-size    : 10px;
+    width                   : var(--status-circle-size);
+    height                  : var(--status-circle-size);
+
+    /* REMEMBER: change the color to a variable color */
+    background-color        : var(--clr-missing-highlight);
+    border-radius           : var(--status-circle-size);
+}
+
+section.items-container .kebab-container {
+    width                   : 10px;
+}
+
+section.items-container .kebab-container:hover {
+    background-color         : var(--clr-highlight);
+}
+
+section.items-container .kebab-btn {
+    --kebab-btn-size        : 25px;
+    width                   : var(--kebab-btn-size);
+    height                  : var(--kebab-btn-size);
+    text-align              : center;
+    line-height             : var(--kebab-btn-size);
+    border-radius           : var(--kebab-btn-size);
+    transition              : 0.5s;
+    z-index                 : 2;
+}
+
+section.items-container .kebab-modal {
+    display                 : none;
+    flex-direction          : column;
+    width                   : 100px;
+    text-align              : start;
+    border                  : 3px solid var(--clr-secondary-surface);
+    border-radius           : .5rem;
+    overflow                : hidden;  
+    position                : absolute;
+    z-index                 : 3000;
+    top                     : 20px;
+    left                    : -100px;
+    background-color        : var(--clr-primary-surface);
+}
+
+/* REMINDER: this is a toggleable style, must be always under the .kebab-modal for it to work */
+section.items-container .display-kebab-modal {
+    display                 : flex;
+}
+
+section.items-container .kebab-modal > button {
+    height                  : 50px;
+    text-align              : start;
+    padding-left            : 20px;
+    display                 : flex;
+    align-items             : center;
+    gap                     : 0.5rem;
+    border                  : none;
+    background-color        : var(--clr-primary-surface);
+    cursor                  : pointer;
+    color                   : var(--clr-text);
+}
+
+section.items-container .kebab-modal > button:nth-child(1){
+    border-bottom           : 1px solid var(--clr-secondary-surface);
+}
+
+section.items-container .kebab-modal > button:hover {
+    background-color        : var(--clr-secondary-surface);
+}
+
+section.items-container .kebab-modal > .open-delete-modal-btn {
+    color                   : var(--clr-missing-highlight);
+}
+
+div.empty-list-message-container {
+    height                  : 200px;
+    align-items             : center;
+    width                   : 100%;
+    display                 : none;
+    background-color        : var(--clr-primary-surface);
+}
+
+div.empty-list-message-container > div.empty-list-message-content {
+    color                   : var(--clr-inactive-link);
+    display                 : flex;
+    gap                     : 1rem;
+    flex-direction          : column;
+    align-items             : center;
+    width                   : 100%;
+    justify-content         : center;
+}
+
+i.fa-bars{
+    display                 : none;
+    font-size               : 1.1rem;
+}
+
+/* Responsive */
+@media only screen and (max-width: 1100px){
+    .aside-navigation {
+        transition          : transform .5s;
+        transform           : translate(-300px);
+        position            : fixed
+    }
+
+    main.main-screen {
+        margin-left         : 0;
+        width               : 100%;
+    }
+
+    i.fa-bars{
+        display             : block;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    main.main-screen > section.item-status-summary > section.item-summary-cards {
+        display             : flex;
+        flex-direction      : column;
+    }
+
+    section.items-container > table {
+        table-layout        : fixed;
+        font-size           : 13px;
+    }
+
+    main.main-screen > div.chart > canvas#myChart{
+        display             : block;
+        height              : 300px !important; 
+        max-width           : 1000px !important;
+    }
+}

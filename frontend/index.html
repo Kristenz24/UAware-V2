@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAware v2</title>
+
+    <!-- Chart JS -->
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Javascript -->
+    <script defer src="./public/js/index.js"></script>
+    <script defer src="./public/js/modals.js"></script>
+    <script defer src="./public/js/fileUpload.js"></script>
+
+    <script defer type="module" src="./public/js/api.js"></script>
+    <script defer type="module" src="./public/js/notification.js"></script>
+    <script defer type="module" src="./public/js/chart1.js"></script>
+    <script defer type="module" src="./public/js/renderItemRow.js"></script>
+    <script defer type="module" src="./public/js/attachRowClickListeners.js"></script>
+    <script defer type="module" src="./public/js/initializeModalEvents.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./public/css/fileUpload.css">
+    <link rel="stylesheet" href="./public/css/notification.css">
+    <link rel="stylesheet" href="./public/css/index.css">
+    <link rel="stylesheet" href="./public/css/modals.css">
+    <link rel="stylesheet" href="./public/css/global.css">
+
+     <!-- FontAwesome CDN -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <main class="main-container">
+        <!-- Modals -->
+
+        <!-- Post Modal -->
+        <div id="post-modal-container" class="screen-blocker">
+            <div id="post-modal-form">
+                <h4>Add missing item</h4>
+                <form class="post-form">
+
+                    <!-- Item image -->
+                     <div id="post-item-image-container" class="file-upload">
+                        <label for="input-file" id="drop-area">
+                            <input id="input-file" name="postItemImage" type="file" accept="image/*" hidden>
+                            <div class="image-view">
+                                <p class="image-view-text">Click or drag and drop to upload your image</p>
+                            </div>
+                        </label>
+                     </div>
+
+                    <!-- Full name -->
+                    <label for="post-full-name">Reported by</label>
+                    <input type="text" name="postFullName" id="post-full-name" placeholder="e.g., Juan Dela Cruz" maxlength="50" autocomplete="off">
+
+                    <!-- Item name -->
+                    <label for="post-item-name">Item Name</label>
+                    <input type="text" name="postItemName" id="post-item-name" placeholder="e.g., Tumbler" maxlength="50" autocomplete="off">
+
+                    <!-- Item description -->
+                    <label for="post-item-description">Item Description</label>
+                    <input type="text" name="postItemDescription" id="post-item-description" placeholder="e.g., color: yellow" maxlength="50" autocomplete="off">
+
+                    <!-- Item category -->
+                    <p class="item-category-header">Item Category</p>
+                    <div class="item-category-container">
+                        <input name="postItemCategory" type="radio" id="electronics" value="Electronics">
+                        <label for="electronics">Electronics</label>
+
+                        <input name="postItemCategory" type="radio" id="id-and-cards" value="ID and Cards">
+                        <label for="id-and-cards">ID and Cards</label>
+
+                        <input name="postItemCategory" type="radio" id="books-and-study-materials" value="Books and Study Materials">
+                        <label for="books-and-study-materials">Books and Study Materials</label>
+
+                        <input name="postItemCategory" type="radio" id="clothing-and-accessories" value="Clothing and Accessories">
+                        <label for="clothing-and-accessories">Clothing and Accessories</label>
+
+                        <input name="postItemCategory" type="radio" id="personal-belongings" value="Personal Belongings">
+                        <label for="personal-belongings">Personal Belongings</label>
+
+                        <input name="postItemCategory" type="radio" id="bags-and-stationery" value="Bags and Stationery">
+                        <label for="bags-and-stationery">Bags and Stationery</label>
+                    </div>
+
+                    <!-- Item buttons -->
+                    <div class="post-form-buttons">
+                        <button class="post-form-close-btn" type="button">Close</button>
+                        <button type="submit">Post</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Edit Modal -->
+        <div id="edit-modal-container"    class="screen-blocker">
+            <div id="edit-modal-form">
+                <h4>Edit Item</h4>
+                <form class="edit-form" autocomplete="off">
+                    <!-- edit item id  -->
+                    <div>
+                        <p>Item ID</p>
+                        <p id="edit-item-id"></p>
+                    </div>
+        
+                    <!-- edit full name field -->
+                    <label for="edit-full-name">Reported by</label>
+                    <input type="text" name="editFullName" id="edit-full-name" maxlength="50">
+
+                    <!-- edit item name field -->
+                    <label for="edit-item-name">Item Name</label>
+                    <input type="text" name="editItemName" id="edit-item-name" maxlength="50">
+
+                    <!-- edit item description field -->
+                    <label for="edit-item-description">Item Description</label>
+                    <input type="text" name="editItemDescription" id="edit-item-description" maxlength="50">
+                
+                    <!-- edit item status -->
+                    <label for="edit-toggle-button-checkbox">
+                        <input type="checkbox" name="editToggleButton" id="edit-toggle-button-checkbox">
+                        <div class="edit-toggle-button-container">
+                            <div class="edit-toggle-button-circle"></div>
+                        </div>
+                        <p class="edit-toggle-button-status-text">Missing</p>
+                    </label>
+                    
+                    <!-- edit item buttons -->
+                    <div class="edit-form-buttons">
+                        <button class="edit-form-close-btn" type="button">Close</button>
+                        <button type="submit">Edit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Delete Modal -->
+        <div id="delete-modal-container"  class="screen-blocker">
+            <div id="delete-modal-form">
+                <div>
+                    <h4>Delete Item</h4>
+                    <p>Are you sure you want to delete the following item: </p>
+                </div>
+                <div>
+                    <p>Item Id:</p>
+                    <p class="delete-item-id"></p>
+                    <p>Item Name:</p>
+                    <p class="delete-item-name"></p>
+                </div>
+                <div class="delete-form-buttons">
+                    <button class="delete-form-close-btn" >Cancel</button>
+                    <button  class="delete-item-btn">Delete</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item Modal -->
+        <div id="item-modal-container"    class="screen-blocker">
+            <div id="item-modal-form">
+                <div class="item-image-container">
+                    <!-- rename this id names lol -->
+                    <img id="item-modal-item-image" src="">
+                </div>
+                <div class="item-information-container">
+                    <h4>Item Information</h4>
+                    <p id="item-modal-full-name"></p>
+                    <p id="item-modal-item-name"></p>
+                    <p id="item-modal-item-description"></p>
+                    <p id="item-modal-item-status"></p>
+                    <p id="item-modal-item-category"></p>
+                </div>
+               <button class="item-form-close-btn" >Close</button>
+            </div>
+        </div>
+
+        <!-- Aside Navigation -->
+        <div class="aside-navigation-blocker" onclick="showMenu()"></div>
+        <nav class="aside-navigation">
+            <div class="logo">
+                <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+                <h1>✦ UAware</h1>
+            </div>
+
+            <div class="open-post-modal-btn">
+                <button type="button">✦ Post Missing Item</button>
+            </div>
+
+            <ul class="nav-links">
+                <li><a class="active-link" href="#"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+                <li><a href="#"><i class="fa-solid fa-house"></i> Placeholder Text</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Screen -->
+         <main class="main-screen">
+            <!-- main screen header -->
+            <header>
+                <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+                <h2>Dashboard</h2>
+            </header>
+
+    
+            <!-- item status summary -->
+            <section class="item-status-summary">
+                <section class="item-summary-cards">
+                    <article class="item-found-count">
+                        <i class="fa-solid fa-check"></i>
+                        <div>
+                            <p class="items-found-summary-text"></p>
+                            <p>Total Items Found </p>
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+                    </article>
+
+                    <article class="item-missing-count">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <div>
+                            <p class="items-missing-summary-text"></p>
+                            <p>Total Missing Items</p>
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+                    </article>
+                </section>
+            </section>
+
+            <!-- chart -->
+            <div class="chart">
+                <canvas id="myChart"></canvas>
+            </div>
+
+            <!-- items table -->
+            <section class="items-container">
+
+                <header>
+                    <h3 class="dashboard-subheader">List of items</h3>
+                    <div class="search-field" role="search">
+                        <input class="search-input" type="text" placeholder="Search item">
+                    </div>
+                </header>
+
+                <!-- Table Header -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>Reported by</th>
+                            <th>Item Name</th>
+                            <th>Item Description</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+                <!-- Empty Table Message -->
+                <div class="empty-list-message-container">
+                    <div class="empty-list-message-content">
+                        <i class="fa-solid fa-mug-hot"></i>
+                        <p>Nothing to see here...</p>
+                    </div>
+                </div>
+
+            </section>
+         </main>
+    </main>
+</body>
+</html>

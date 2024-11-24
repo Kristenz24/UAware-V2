@@ -1,0 +1,47 @@
+/* Imports */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+/* custom scroll bar  */
+::-webkit-scrollbar       { width      : .3rem; }
+::-webkit-scrollbar-track { background : var(--clr-primary-surface); }
+::-webkit-scrollbar-thumb { background : var(--clr-inactive-link); }
+
+/* CSS Reset */
+* {
+    margin                  : 0;
+    padding                 : 0;
+    box-sizing              : border-box;
+    text-decoration         : none;
+    list-style              : none;
+    font-family             : "Poppins", sans-serif;
+    font-family             : "Open Sans", sans-serif;
+}
+
+/* Global Variables */
+:root {
+    /* Font variables */
+    --fs-card-description   : .8rem;
+    --fs-main-header        : 1.5rem; /* = 24px */
+    --fs-sub-header         : 1.1rem;   
+
+    --clr-bg                : #000000;
+    --clr-primary-surface   : #0B0B0B;
+    --clr-secondary-surface : #121212;
+    --clr-text              : #FFFFFF;
+    --clr-missing-highlight : #F1515E;
+    --clr-found-highlight   : #AEFB2A;
+    --clr-inactive-link     : #555555;
+
+    --clr-gradient-blue     : rgba(115, 164, 216, 1);
+    --clr-gradient-white    : rgba(255, 255, 255, 1);
+    --clr-gradient-yellow   : rgba(242, 248, 178, 1);
+    --clr-gradient-red      : rgba(240, 118, 118, 1);
+}
+button{
+    transition              : transform .5s ease;
+    cursor                  : pointer
+}
+
+button:active {
+    transform               : scale(.9);
+}
