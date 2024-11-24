@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router();
 const itemController  = require('../controllers/itemController')
-const upload = require('../utils//fileUpload');
+const upload = require('../utils/fileUpload');
 
 // GET: Retrieve data (6)
 router.get('/items', itemController.getAllItems);
