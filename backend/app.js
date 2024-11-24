@@ -19,12 +19,7 @@ app.use('/public', express.static(path.join(__dirname, '..', 'frontend', 'public
 app.use('/', defaultRoute);
 app.use('/api', itemRoutes);
 
-
-// Cors is responsible for blocking any website from accessing this
 app.use(cors())
-
-
-
 
 app.listen(PORT, async () => {
     try {
