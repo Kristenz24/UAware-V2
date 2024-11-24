@@ -149,16 +149,16 @@ div#edit-modal-form > form.edit-form {
 }
 
 div#edit-modal-form > form.edit-form > div {
-    padding: 1.5rem 0rem 1rem;
+    padding                 : 1.5rem 0rem 1rem;
 }
 
 div#edit-modal-form > form.edit-form > div > p {
-    color: var(--clr-text);
+    color                   : var(--clr-text);
 }
 
 div#edit-modal-form > form.edit-form > div > p:nth-child(2) {
-    padding-top: .5rem;
-    color:var(--clr-inactive-link);
+    padding-top             : .5rem;
+    color                   : var(--clr-inactive-link);
 }
 
 div#edit-modal-form > form.edit-form > label {
