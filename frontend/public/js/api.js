@@ -152,7 +152,7 @@ function totalFound() {
     .then(res=> res.json())
     .then(data=> {
         // debug
-        console.log(data.items_found)
+        // console.log(data.items_found)
         itemsFoundSummaryText.textContent = `${data.items_found}`
     })
 }
@@ -164,7 +164,7 @@ function totalMissing() {
     .then(res=> res.json())
     .then(data=>{
         // debug
-        console.log(data.items_missing)
+        // console.log(data.items_missing)
         itemsMissingSummaryText.textContent = `${data.items_missing}`
     })
     

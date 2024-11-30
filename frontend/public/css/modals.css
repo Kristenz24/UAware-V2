@@ -31,7 +31,7 @@ div#post-modal-container > div#post-modal-form {
     top                     : 10%;
     overflow-y              : scroll;
     overflow-x              : hidden;
-    border                  : 3px solid var(--clr-secondary-surface);
+    border                  : 1px solid var(--clr-secondary-surface);
 }
 
 div#post-modal-form > h4 {
@@ -76,7 +76,7 @@ div#post-modal-form > form.post-form > div.post-form-buttons > button {
 div#post-modal-form > form.post-form > div.post-form-buttons > button:nth-child(1) {
     border                  : 1px solid var(--clr-inactive-link);
     background-color        : transparent;
-    color                   : var(--clr-inactive-link);
+    color                   : var(--clr-text);
     transition              : .3s ease;
 }
 div#post-modal-form > form.post-form > div.post-form-buttons > button:nth-child(1):hover {
@@ -135,7 +135,7 @@ div#edit-modal-container > div#edit-modal-form {
     max-height              : 800px;
     position                : absolute;
     top                     : 10%;
-    border                  : 3px solid var(--clr-secondary-surface);
+    border                  : 1px solid var(--clr-secondary-surface);
 }
 
 div#edit-modal-form > h4 {
@@ -193,7 +193,7 @@ div#edit-modal-form > form.edit-form > div.edit-form-buttons > button {
 div#edit-modal-form > form.edit-form > div.edit-form-buttons > button:nth-child(1) {
     border                  : 1px solid var(--clr-inactive-link);
     background-color        : transparent;
-    color                   : var(--clr-inactive-link);
+    color                   : var(--clr-text);
     transition              : 0.3s ease;
 }
 
@@ -252,7 +252,7 @@ div#delete-modal-container > div#delete-modal-form {
     max-height              : 400px;
     position                : absolute;
     top                     : 20%;
-    border                  : 3px solid var(--clr-secondary-surface);
+    border                  : 1px solid var(--clr-secondary-surface);
     display                 : flex;
     flex-direction          : column;
     gap                     : 1rem;
@@ -293,7 +293,7 @@ div#delete-modal-form > div.delete-form-buttons > button {
 div#delete-modal-form > div.delete-form-buttons > button:nth-child(1) {
     border                  : 1px solid var(--clr-inactive-link);
     background-color        : transparent;
-    color                   : var(--clr-inactive-link);
+    color                   : var(--clr-text);
     transition              : 0.5s ease;
 }
 
@@ -316,10 +316,10 @@ div#item-modal-container > div#item-modal-form {
     width                   : 90%;
     max-width               : 600px;
     height                  : 80%;
-    max-height              : 700px;
+    max-height              : 800px;
     position                : absolute;
     top                     : 10%;
-    border                  : 3px solid var(--clr-secondary-surface);
+    border                  : 1px solid var(--clr-secondary-surface);
     display                 : flex;
     flex-direction          : column;
 }
@@ -352,12 +352,13 @@ div#item-modal-container > div#item-modal-form > button {
     height                  : 45px;
     border                  : 1px solid var(--clr-inactive-link);
     border-radius           : 0.5rem; 
-    position                : absolute;
+    /* position                : absolute; */
     bottom                  : 50px;
     background-color        : transparent;
-    color                   : var(--clr-inactive-link);
-    transition              : .3s ease;
+    color                   : var(--clr-text);
+    transition              : 0.3s ease;
     align-self              : center;
+    margin-top              : 2rem;
 }
 
 div#item-modal-container > div#item-modal-form > button:hover {

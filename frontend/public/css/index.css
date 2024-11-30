@@ -43,7 +43,7 @@ main.main-container {
     gap                     : 1rem;
     z-index                 : 6000;
     background-color        : var(--clr-primary-surface);
-    border-right            : 3px solid var(--clr-secondary-surface);
+    border-right            : 1px solid var(--clr-secondary-surface);
 
 }
 
@@ -131,7 +131,7 @@ main.main-screen > div.chart {
     justify-content         : center;
     align-items             : center;
     background-color        : var(--clr-primary-surface);
-    border                  : 3px solid var(--clr-secondary-surface);
+    border                  : 1px solid var(--clr-secondary-surface);
     transition              : background-color 0.5s ease;
 }
 
@@ -168,7 +168,7 @@ main.main-screen > section.item-status-summary > .item-summary-cards > article {
     display                 : flex;
     gap                     : 1rem;
     flex-direction          : column;
-    border                  : 3px solid var(--clr-secondary-surface);
+    border                  : 1px solid var(--clr-secondary-surface);
     transition              : background-color .5s ease;
     position                : relative;
     overflow: hidden;
@@ -282,7 +282,7 @@ section.items-container tbody > tr:hover {
     position                : relative;
     transform               : scale(1.01);
     border-radius           : .5rem;
-    background-color: var(--clr-secondary-surface);
+    background-color        : var(--clr-secondary-surface);
 }
 
 section.items-container tbody > tr:not(:hover) {
@@ -292,6 +292,7 @@ section.items-container tbody > tr:not(:hover) {
 
 section.items-container tbody > tr > td  {
     position                : relative;
+    border: none;
 }
 
 section.items-container th,
@@ -364,7 +365,7 @@ section.items-container .kebab-modal {
     flex-direction          : column;
     width                   : 100px;
     text-align              : start;
-    border                  : 3px solid var(--clr-secondary-surface);
+    border                  : 1px solid var(--clr-secondary-surface);
     border-radius           : .5rem;
     overflow                : hidden;  
     position                : absolute;
