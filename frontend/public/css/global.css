@@ -13,7 +13,6 @@
     box-sizing              : border-box;
     text-decoration         : none;
     list-style              : none;
-    font-family             : "Poppins", sans-serif;
     font-family             : "Open Sans", sans-serif;
 }
 
@@ -24,17 +23,10 @@
     --fs-main-header        : 1.5rem; /* = 24px */
     --fs-sub-header         : 1.1rem;   
 
-    /* --clr-bg                : #000000; */
-    /* --clr-primary-surface   : #0B0B0B; */
-    /* --clr-secondary-surface : #121212; */
-
-
     --clr-bg                : #0E051F;
     --clr-primary-surface   : #0E051F;
     --clr-secondary-surface : #17172F;
-
-    --clr-text              : #D7DADC ;
-    /* --clr-text              : #FFFFFF; */
+    --clr-text              : #D7DADC;
 
     --clr-missing-highlight : #F1515E;
     --clr-found-highlight   : #AEFB2A;
