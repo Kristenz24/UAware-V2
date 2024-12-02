@@ -14,8 +14,9 @@ const app = express();
 app.use(express.json());
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); 
-app.use('/assets/images', express.static(path.join(__dirname, 'assets', 'images'))); // RESEARCH THIS
-app.use('/public', express.static(path.join(__dirname, '..', 'frontend', 'public')))
+app.use('/assets/images', express.static(path.join(__dirname, 'assets', 'images'))); 
+app.use('/public', express.static(path.join(__dirname, '..', 'frontend', 'public')));
+
 app.use('/', defaultRoute);
 app.use('/api', itemRoutes);
 

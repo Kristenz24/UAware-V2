@@ -38,7 +38,7 @@ function addMissingItem() {
         const formDataItemCategory = formData.get('postItemCategory')
 
         // form validation
-        if (formDataFullName === '' || formDataItemName === '' || formDataItemDescription === '' || formDataItemCategory === '' || formDataItemCategory === null){
+        if (formDataFullName.trim() === '' || formDataItemName.trim() === '' || formDataItemDescription.trim() === '' || formDataItemCategory.trim() === '' || formDataItemCategory === null){
             showNotification('Please fill up all the fields')
         } else {
             if (formDataFullName.length > 50 || formDataItemName.length > 50 || formDataItemDescription.length > 100 || formDataItemImage.length > 200){
@@ -113,7 +113,7 @@ function editMissingItem() {
         const formDataItemDescription = formData.get('editItemDescription');
         
 
-        if (formDataFullName === '' || formDataItemName === '' || formDataItemDescription === '' ){
+        if (formDataFullName.trim() === '' || formDataItemName.trim() === '' || formDataItemDescription.trim() === '' ){
             showNotification('Please fill up all the fields');
         } else {
             if (formDataFullName.length > 50 || formDataItemName.length > 50 || formDataItemDescription.length > 100) {
