@@ -67,11 +67,11 @@ nav.aside-navigation > div.logo {
     padding-inline          : 1rem ;
 }
 
-nav.aside-navigation > div.logo > h1 {
-    background              : linear-gradient(to right, var(--clr-gradient-blue), var(--clr-gradient-white));
-    background-clip         : text; 
-    -webkit-background-clip : text; 
-    -webkit-text-fill-color : transparent; 
+nav.aside-navigation > div.logo > h1 > a{
+    color                   : var(--clr-text);
+}
+nav.aside-navigation > div.logo > h1 > a > span{
+    color                   : var(--clr-gradient-blue);
 }
 
 nav.aside-navigation > div.open-post-modal-btn > button {

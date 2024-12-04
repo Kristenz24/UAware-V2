@@ -52,6 +52,14 @@
             font-size: 3rem;
             font-weight: 600;
         }
+        header > p {
+            color: var(--clr-text);
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+        header > p > span{
+            color: var(--clr-gradient-blue);
+        }
 
         header > a {
             padding: 1rem 3rem;
@@ -91,9 +99,6 @@
 
 
         @media only screen and (max-width: 1200px) {
-            header > p {
-                font-size: .8rem;
-            }
             header > h1{
                 font-size: 2rem;
             }
@@ -117,7 +122,7 @@
     <div class="blur"></div>
     <main>
         <header class="main-header">
-            <p>✦ UAware</p>
+            <p><span>U</span>Aware</p>
             <h1>Reconnect with your lost <br> treasures.</h1>
             <a href="./dashboard">Go to Dashboard <i class="fa-solid fa-arrow-right"></i></a>
         </header>
