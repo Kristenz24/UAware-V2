@@ -2,6 +2,11 @@
 
 ***UAware*** is a web application designed to help users track and recover lost items. It simplifies the process of managing and locating missing belongings in a seamless, user-friendly way.
 
+## Note: Downloading as a ZIP
+- Downloading this project as a ZIP file may occasionally trigger a ``"Virus Detected"`` warning in some web browsers. This is because the project may mimic behaviors that are mistakenly flagged as malware.
+
+- To verify if yourself, you can upload the ZIP file to ``VirusTotal``, which provides a comprehensive analysis of the file, this would verify that this project is just a ``false positive``
+
 ## Prerequisites
 Make sure you have the following installed:
 - Node JS
@@ -41,3 +46,4 @@ PORT=8080
 cd backend
 ```
 Lastly, type `npm run dev` or `npm start`
+
