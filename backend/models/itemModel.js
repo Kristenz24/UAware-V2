@@ -1,6 +1,6 @@
 const db = require('../config/db')
 
-// GET: Retrieve data (6)
+// GET: Retrieve data (7)
 const getAllItems = async () => {
     try {
         const [ result ] = await db.pool.query(`SELECT * FROM missing_items`)
