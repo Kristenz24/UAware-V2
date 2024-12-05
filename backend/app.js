@@ -24,7 +24,8 @@ app.use(cors())
 
 app.listen(PORT, async () => {
     try {
-        await dbSetup.initializeDatabase();
+        // Uncomment the code below after downloading
+        // await dbSetup.initializeDatabase();
         console.log(`Server is running on http://localhost:${PORT}`)
 
     } catch (error) {
